@@ -1,0 +1,35 @@
+<html>
+    <body>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+        <h3>Pasar el modelo PIM a un modelo PSM</h3>
+        <div class="mermaid">
+            erDiagram
+    EQUIPO ||--o{ JUGADOR : conformado
+        EQUIPO {
+            string id_equipo PK "identificacion del equipo"
+            string nombre
+            string tipo_deporte
+            string siglas
+            
+        }
+        JUGADOR ||--o{ SANCION : tiene
+            JUGADOR{
+                string id_jugador PK "identificacion del jugador"
+                string nombre
+                string apellido
+                string id_equipo FK "equipo al que pertenece el jugador"
+            }
+
+
+        SANCION {
+            
+            string observacion
+            string multa
+            string id_jugador FK "jugador al que le pertenece la multa"
+        }
+        </div>
+    </body>
+</html>
